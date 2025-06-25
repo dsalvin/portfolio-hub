@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alvin Dandeebo // Shonzix</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;700&family=Orbitron:wght@700&display=swap');
+
+        /* --- General --- */
+        body {
+            background-color: #050a13;
+        }
+        .panel {
+            transition: all 0.5s cubic-bezier(0.25, 0.8, 0.25, 1);
+        }
+        .panel-container:hover .panel:not(:hover) {
+            filter: grayscale(80%) brightness(0.6);
+        }
+
+        /* --- Architect Panel --- */
+        .architect-panel {
+            --blueprint-bg: #1A202C;
+            --grid-color: rgba(113, 128, 150, 0.1);
+            --primary-color: #5D9CEC;
+            font-family: 'Roboto Mono', monospace;
+            background-color: var(--blueprint-bg);
+            background-image: 
+                linear-gradient(var(--grid-color) 1px, transparent 1px),
+                linear-gradient(90deg, var(--grid-color) 1px, transparent 1px);
+            background-size: 40px 40px;
+        }
+        .btn-architect {
+            color: var(--primary-color);
+            border: 1px solid var(--primary-color);
+            transition: background-color 0.3s ease;
+        }
+        .btn-architect:hover {
+            background-color: rgba(93, 156, 236, 0.1);
+        }
+
+        /* --- Hero Panel --- */
+        .hero-panel {
+            --hero-bg-color: #0f0f1b;
+            --primary-color: #00e5ff;
+            font-family: 'Orbitron', sans-serif;
+            background-color: var(--hero-bg-color);
+            position: relative;
+            overflow: hidden;
+        }
+        .hero-panel::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 800px;
+            height: 800px;
+            background: radial-gradient(circle, rgba(0, 229, 255, 0.15) 0%, rgba(0, 229, 255, 0) 60%);
+            transform: translate(-50%, -50%);
+            animation: pulse-glow 5s infinite ease-in-out;
+        }
+        @keyframes pulse-glow {
+            0% { opacity: 0.8; transform: translate(-50%, -50%) scale(0.9); }
+            50% { opacity: 1; transform: translate(-50%, -50%) scale(1.1); }
+            100% { opacity: 0.8; transform: translate(-50%, -50%) scale(0.9); }
+        }
+        .btn-hero {
+            background: transparent;
+            border: 2px solid var(--primary-color);
+            color: var(--primary-color);
+            transition: background-color 0.3s, color 0.3s;
+        }
+        .btn-hero:hover {
+            background-color: var(--primary-color);
+            color: var(--hero-bg-color);
+        }
+    </style>
+</head>
+<body class="text-white">
+
+    <div class="panel-container flex flex-col md:flex-row min-h-screen">
+        
+        <!-- Architect Panel (Left) -->
+        <div class="architect-panel panel w-full md:w-1/2 flex flex-col justify-center items-center p-8 text-center">
+            <div class="max-w-md">
+                <h2 class="text-4xl md:text-5xl font-bold mb-2" style="color: #E2E8F0;">Alvin Dandeebo</h2>
+                <h3 class="text-xl mb-6" style="color: #A0AEC0;">// The Digital Architect</h3>
+                <p class="mb-8" style="color: #A0AEC0;">
+                    For meticulously planned blueprints, structured code, and scalable systems built with precision.
+                </p>
+                <a href="./architect.html" class="btn-architect py-3 px-8 rounded-sm font-semibold tracking-wider">
+                    [ View Blueprints ]
+                </a>
+            </div>
+        </div>
+
+        <!-- Hero Panel (Right) -->
+        <div class="hero-panel panel w-full md:w-1/2 flex flex-col justify-center items-center p-8 text-center">
+             <div class="max-w-md relative z-10">
+                <h2 class="text-4xl md:text-5xl font-bold mb-2">Shonzix</h2>
+                <h3 class="text-xl text-cyan-300 mb-6">The Creative Problem-Solver</h3>
+                <p class="text-gray-300 mb-8">
+                    For dynamic solutions, bold innovation, and heroic efforts to conquer complex digital challenges.
+                </p>
+                <a href="./hero.html" class="btn-hero py-3 px-8 rounded-md font-bold tracking-wider">
+                    [ View Dossier ]
+                </a>
+            </div>
+        </div>
+
+    </div>
+
+</body>
+</html>
