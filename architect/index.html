@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Alvin Dandeebo | Digital Architect</title>
+    <title>Alvin Dandy | Digital Architect</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
@@ -25,6 +25,8 @@
             --text-secondary: #8892B0;
             --card-bg: #112240;
             --card-border: #172a45;
+            --success-color: #64FFDA;
+            --error-color: #FF5252;
         }
 
         .focus-theme {
@@ -35,6 +37,8 @@
             --text-secondary: #A0AEC0;
             --card-bg: #2D3748;
             --card-border: #2D3748;
+            --success-color: #5D9CEC;
+            --error-color: #FF5252;
         }
 
         /* --- APPLYING THEME --- */
@@ -130,10 +134,10 @@
 
     <header class="fixed top-0 left-0 w-full p-6 md:p-8 z-20">
         <nav class="flex justify-between items-center max-w-6xl mx-auto">
-            <div class="text-xl font-bold text-main cursor-pointer" onclick="showSection('home')">Alvin Dandeebo // Digital Architect</div>
+            <div class="text-xl font-bold text-main cursor-pointer" onclick="showSection('home')">Alvin Dandy // Digital Architect</div>
             <ul class="hidden md:flex items-center space-x-8 text-sm">
                 <li><button id="theme-switcher" title="Toggle Focus Mode"><i class="fas fa-lightbulb fa-lg"></i></button></li>
-                <li><a href="./index.html" class="text-xs text-yellow-300 hover:text-yellow-100">[ Return to Hub ]</a></li>
+                <li><a href="../index.html" class="text-xs text-yellow-300 hover:text-yellow-100">[ Return to Hub ]</a></li>
                 <li><span class="text-xs mr-1" style="color: var(--primary-color);">01.</span><a class="nav-item" onclick="showSection('about', this)">//about</a></li>
                 <li><span class="text-xs mr-1" style="color: var(--primary-color);">02.</span><a class="nav-item" onclick="showSection('projects', this)">//projects</a></li>
                 <li><span class="text-xs mr-1" style="color: var(--primary-color);">03.</span><a class="nav-item" onclick="showSection('contact', this)">//contact</a></li>
@@ -167,7 +171,7 @@
                 </div>
                 <div class="flex justify-center items-center">
                     <div class="w-64 h-64 border-2 relative" style="border-color: var(--primary-color);">
-                        <img src="https://placehold.co/300x300/1A202C/E2E8F0?text=Alvin+D" alt="Alvin Dandeebo" class="absolute w-full h-full object-cover -top-4 -left-4 hover:top-0 hover:left-0 transition-all duration-300">
+                        <img src="https://placehold.co/300x300/1A202C/E2E8F0?text=Alvin+D" alt="Alvin Dandy" class="absolute w-full h-full object-cover -top-4 -left-4 hover:top-0 hover:left-0 transition-all duration-300">
                     </div>
                 </div>
              </div>
@@ -177,7 +181,7 @@
             <h2 class="text-3xl font-bold mb-8 text-main text-center">// Project Blueprints</h2>
             <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
                 <div class="project-card p-6 rounded-sm"><h3 class="text-xl font-bold mb-2 text-main">Synapse</h3><p class="text-secondary mb-4">Architected a real-time whiteboard application with a Next.js frontend and a Node.js WebSocket backend for instant state synchronization.</p><a href="https://synapse-client-five.vercel.app" target="_blank" class="hover:underline" style="color: var(--primary-color);">View Datasheet →</a></div>
-                <div class="project-card p-6 rounded-sm"><h3 class="text-xl font-bold mb-2 text-main">Blueprint: Data & AI</h3><p class="text-secondary mb-4">An analytics engine that processes and visualizes complex data streams, utilizing machine learning to forecast trends.</p><a href="#" target="_blank" class="hover:underline" style="color: var(--primary-color);">View Datasheet →</a></div>
+                <div class="project-card p-6 rounded-sm"><h3 class="text-xl font-bold mb-2 text-main">Oracle</h3><p class="text-secondary mb-4">Engineered a full-stack analytics dashboard with a React/MUI frontend and a Python/FastAPI backend for AI-powered sales forecasting.</p><a href="https://oracle-frontend-chi.vercel.app" target="_blank" class="hover:underline" style="color: var(--primary-color);">View Datasheet →</a></div>
                 <div class="project-card p-6 rounded-sm"><h3 class="text-xl font-bold mb-2 text-main">Blueprint: Creative UI/UX</h3><p class="text-secondary mb-4">An interactive 3D product visualizer focusing on a seamless user experience, fluid animations, and photorealistic rendering.</p><a href="#" target="_blank" class="hover:underline" style="color: var(--primary-color);">View Datasheet →</a></div>
             </div>
         </section>
@@ -185,11 +189,14 @@
         <section id="contact" class="content-section">
             <h2 class="text-3xl font-bold mb-4 text-main text-center">// Commission a Blueprint</h2>
             <p class="text-secondary mb-8 max-w-xl mx-auto text-center">I'm available for freelance work and open to discussing new projects. Let's build something amazing together.</p>
-            <form class="max-w-xl mx-auto">
-                <div class="mb-4"><input type="text" placeholder="// Your Name" class="form-input w-full p-3 rounded-sm text-main"></div>
-                <div class="mb-4"><input type="email" placeholder="// Your Email" class="form-input w-full p-3 rounded-sm text-main"></div>
-                <div class="mb-6"><textarea rows="4" placeholder="// Your Message" class="form-input w-full p-3 rounded-sm text-main"></textarea></div>
-                <button type="submit" class="btn-primary py-3 px-6 rounded-sm">Transmit Message</button>
+            <form id="contact-form" class="max-w-xl mx-auto">
+                <div class="mb-4"><input type="text" name="name" placeholder="// Your Name" class="form-input w-full p-3 rounded-sm text-main" required></div>
+                <div class="mb-4"><input type="email" name="email" placeholder="// Your Email" class="form-input w-full p-3 rounded-sm text-main" required></div>
+                <div class="mb-6"><textarea name="message" rows="4" placeholder="// Your Message" class="form-input w-full p-3 rounded-sm text-main" required></textarea></div>
+                <div class="text-center">
+                    <button type="submit" class="btn-primary py-3 px-6 rounded-sm">Transmit Message</button>
+                    <p id="form-status" class="mt-4 text-sm"></p>
+                </div>
             </form>
         </section>
     </main>
@@ -225,6 +232,44 @@
             }
         });
         
+        const form = document.getElementById('contact-form');
+        const formStatus = document.getElementById('form-status');
+
+        async function handleSubmit(event) {
+            event.preventDefault();
+            const data = new FormData(event.target);
+            formStatus.textContent = 'Transmitting...';
+            try {
+                const response = await fetch("https://formspree.io/f/xwpbjwpb", {
+                    method: 'POST',
+                    body: data,
+                    headers: { 'Accept': 'application/json' }
+                });
+                if (response.ok) {
+                    formStatus.textContent = "Message sent successfully!";
+                    formStatus.style.color = "var(--success-color)";
+                    form.reset();
+                } else {
+                    response.json().then(data => {
+                        if (Object.hasOwn(data, 'errors')) {
+                            formStatus.textContent = data["errors"].map(error => error["message"]).join(", ")
+                        } else {
+                            formStatus.textContent = "Oops! There was a problem submitting your form";
+                        }
+                         formStatus.style.color = "var(--error-color)";
+                    })
+                }
+            } catch (error) {
+                formStatus.textContent = "Oops! There was a problem submitting your form";
+                formStatus.style.color = "var(--error-color)";
+            }
+             setTimeout(() => {
+                formStatus.textContent = '';
+                formStatus.style.color = '';
+            }, 5000);
+        }
+        form.addEventListener("submit", handleSubmit)
+
         document.addEventListener('DOMContentLoaded', () => { 
             const savedTheme = localStorage.getItem('theme') || 'design';
             pageWrapper.classList.add(`${savedTheme}-theme`);
