@@ -72,6 +72,7 @@
             max-width: 960px;
             transform: translate(-50%, -50%);
             display: none;
+            padding-top: 7rem;
         }
         .content-section.active {
             display: block;
@@ -83,7 +84,7 @@
             to { opacity: 1; transform: translate(-50%, -50%); }
         }
         
-        #mainframe-canvas { position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 1; }
+        #mainframe-canvas { position: absolute; top: 0; left: 0; width: 100vw; height: 100vw; z-index: 1; }
         .mainframe-content { position: relative; z-index: 2; text-align: center; }
         #hero-title { text-shadow: 0 0 10px var(--primary-color); animation: text-glitch 2s 1s both; }
         @keyframes text-glitch {
@@ -145,21 +146,27 @@
 
     </style>
 </head>
-<body class="antialiased">
-    <header class="fixed top-0 left-0 w-full p-6 z-20">
-        <nav class="flex justify-between items-center max-w-6xl mx-auto hud-border rounded-md p-4 bg-black/30 backdrop-blur-sm">
+<body class="antialiased overflow-y-auto md:overflow-hidden">
+    <header class="fixed top-0 left-0 w-full px-4 sm:px-6 py-4 z-20">
+        <nav class="relative flex justify-between items-center max-w-6xl mx-auto hud-border rounded-md p-4 bg-black/60 md:bg-black/30 backdrop-blur-md">
             <div class="text-2xl font-bold cursor-pointer" onclick="showSection('home')">SHONZIX_DOSSIER</div>
-            <ul class="flex items-center space-x-8 text-md">
-                 <li><a href="../index.html" class="text-xs font-semibold uppercase text-yellow-300 hover:text-yellow-100 tracking-wide">[ EXIT DOSSIER ]</a></li>
-                <li><a class="nav-item" onclick="showSection('profile', this)">Profile</a></li>
-                <li><a class="nav-item" onclick="showSection('missions', this)">Missions</a></li>
-                <li><a class="nav-item" onclick="showSection('command', this)">Command</a></li>
-                <li><a class="nav-item" onclick="showSection('signal', this)">Signal</a></li>
+            <!-- Mobile toggle button -->
+            <button id="mobile-toggle" class="md:hidden text-white text-xl focus:outline-none">
+            <i class="fas fa-bars"></i>
+            </button>
+
+            <!-- Nav menu -->
+            <ul id="nav-menu" class="hidden md:flex flex-col md:flex-row md:items-center absolute md:static top-full left-0 w-full md:w-auto bg-black/90 md:bg-transparent z-50 md:z-auto space-y-4 md:space-y-0 md:space-x-8 text-md mt-4 md:mt-0 p-4 md:p-0">
+            <li><a href="../index.html" class="text-xs font-semibold uppercase text-yellow-300 hover:text-yellow-100 tracking-wide">[ EXIT DOSSIER ]</a></li>
+            <li><a class="nav-item" onclick="showSection('profile', this)">Profile</a></li>
+            <li><a class="nav-item" onclick="showSection('missions', this)">Missions</a></li>
+            <li><a class="nav-item" onclick="showSection('command', this)">Command</a></li>
+            <li><a class="nav-item" onclick="showSection('signal', this)">Signal</a></li>
             </ul>
         </nav>
     </header>
 
-    <main class="w-full h-screen relative">
+    <main class="w-full min-h-screen pt-24 relative px-4 sm:px-6">
             <section id="home" class="content-section active">
                 <canvas id="mainframe-canvas"></canvas>
                 <div class="mainframe-content">
@@ -168,19 +175,19 @@
                             <path d="M50,5 L61.8,38.2 L95.1,38.2 L68.6,58.2 L79.4,91 L50,69.5 L20.6,91 L31.4,58.2 L4.9,38.2 L38.2,38.2 Z" />
                         </svg>
                     </div>
-                    <h1 id="hero-title" class="text-5xl md:text-6xl font-bold mb-4">CODE IS MY SUPERPOWER</h1>
+                    <h1 id="hero-title" class="text-3xl sm:text-4xl md:text-6xl font-bold mb-4 leading-tight break-words">CODE IS MY SUPERPOWER</h1>
                     <p class="text-xl text-text-muted">Building a better web, one mission at a time.</p>
                 </div>
             </section>
             
-            <section id="profile" class="content-section">
+            <section id="profile" class="content-section scroll-mt-24 pt-28">
                 <h2 class="text-4xl font-bold mb-8">// HERO PROFILE</h2>
                 <div class="grid md:grid-cols-3 gap-8"><div class="md:col-span-2"><h3 class="text-2xl font-bold text-primary-color mb-2">ORIGIN STORY</h3><p class="text-text-muted leading-relaxed origin-story">In a digital world plagued by slow, uninspired applications, I took a stand. Armed with a keyboard and an unyielding passion for clean code, I embraced my mission: to rescue users from digital frustration and champion a web that is fast, intuitive, and powerful.</p></div><div><h3 class="text-2xl font-bold text-primary-color mb-2">KNOWN ALIAS</h3><p class="text-2xl mb-6">Shonzix</p><h3 class="text-2xl font-bold text-primary-color mb-2">CLASSIFICATION</h3><p class="text-xl">Creative Problem-Solver</p></div></div><h3 class="text-3xl font-bold text-primary-color mt-12 mb-6">POWER GRID // SKILLS</h3><div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-6 text-center"><div class="power-card p-6 rounded-lg hud-border" style="animation-delay: 0.1s;"><i class="fab fa-js-square fa-3x text-primary-color mb-3"></i><h4 class="font-bold">JavaScript</h4></div><div class="power-card p-6 rounded-lg hud-border" style="animation-delay: 0.2s;"><i class="fab fa-react fa-3x text-primary-color mb-3"></i><h4 class="font-bold">React</h4></div><div class="power-card p-6 rounded-lg hud-border" style="animation-delay: 0.3s;"><i class="fab fa-node-js fa-3x text-primary-color mb-3"></i><h4 class="font-bold">Node.js</h4></div><div class="power-card p-6 rounded-lg hud-border" style="animation-delay: 0.4s;"><i class="fab fa-python fa-3x text-primary-color mb-3"></i><h4 class="font-bold">Python</h4></div><div class="power-card p-6 rounded-lg hud-border" style="animation-delay: 0.5s;"><i class="fas fa-database fa-3x text-primary-color mb-3"></i><h4 class="font-bold">SQL & NoSQL</h4></div></div>
             </section>
             
-            <section id="missions" class="content-section">
-                <h2 class="text-4xl font-bold mb-8">// COMPLETED MISSIONS</h2>
-                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <section id="missions" class="content-section scroll-mt-24 pt-28">
+                <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold mb-8">// COMPLETED MISSIONS</h2>
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
                     <div class="mission-card hud-border rounded-lg" style="animation-delay: 0.1s;">
                         <div class="overflow-hidden"><img src="../synapse-screenshot.png" alt="Synapse Project Preview" class="w-full h-48 object-cover mission-image"></div>
                         <div class="p-6"><h3 class="text-2xl font-bold mb-2">Mission: Synapse</h3><p class="text-text-muted mb-4">I led the charge to build a real-time collaborative platform from scratch, liberating teams from clunky, restrictive software.</p><a href="https://synapse-client-five.vercel.app" target="_blank" class="font-bold text-primary-color hover:underline">ACCESS FILE ></a></div>
@@ -196,16 +203,16 @@
                 </div>
             </section>
             
-            <section id="command" class="content-section">
+            <section id="command" class="content-section scroll-mt-24 pt-28">
                 <h2 class="text-4xl font-bold mb-2 text-center">// COMMAND CENTER</h2>
                 <p class="text-text-muted mb-6 text-center">Live System Triage Simulation</p>
-                <div class="grid grid-cols-3 gap-8 items-center"><div class="col-span-3 lg:col-span-2 system-diagram"><svg id="connection-lines" class="w-full h-full"><path id="line-users-lb" class="line-ok" d="M 120 200 L 240 200" /><path id="line-lb-web" class="line-ok" d="M 360 200 L 480 200" /><path id="line-web-db" class="line-fail" d="M 600 200 L 720 200" /><path id="line-web-db-backup" class="line-ok" stroke-dasharray="4" stroke-opacity="0" d="M 600 200 C 600 300, 720 300, 720 320" /></svg><div class="system-node node-users"><i class="fas fa-users fa-2x text-primary-color"></i><p>USERS</p></div><div class="system-node node-lb"><i class="fas fa-server fa-2x text-primary-color"></i><p>Load Balancer</p></div><div class="system-node node-web"><i class="fas fa-cubes fa-2x text-primary-color"></i><p>Web Servers</p></div><div id="db-primary-node" class="system-node node-db cursor-pointer"><div id="db-primary-status" class="node-status status-fail">FAILING</div><i class="fas fa-database fa-2x text-danger-color"></i><p>Database</p></div><div id="db-backup-node" class="system-node node-db-backup"><div id="db-backup-status" class="node-status status-offline">OFFLINE</div><i class="fas fa-database fa-2x text-text-muted"></i><p>Backup DB</p></div></div><div class="col-span-3 lg:col-span-1 hud-border p-4 rounded-lg"><h3 class="text-2xl font-bold mb-4">SYSTEM STATUS</h3><div class="mb-4"><p class="text-text-muted">SYSTEM INTEGRITY:</p><p id="integrity-percent" class="text-4xl font-bold text-danger-color">35%</p></div><div id="diag-panel" class="bg-black/20 p-3 rounded-md" style="opacity:0;visibility:hidden;"><p class="font-bold text-primary-color">// DIAGNOSTIC REPORT</p><p><strong class="text-text-muted">STATUS:</strong> <span class="text-danger-color">OFFLINE</span></p><p><strong class="text-text-muted">REASON:</strong> QUERY OVERLOAD</p><p><strong class="text-text-muted">SOLUTION:</strong> DEPLOY 'SHONZIX' PROTOCOL</p><button id="engage-protocol-btn" class="btn-primary w-full mt-4 py-3 font-bold">ENGAGE PROTOCOL</button></div><p id="diag-prompt" class="text-text-muted text-center mt-4">Click failing node to run diagnostics.</p></div></div>
+                <div class="grid grid-cols-1 lg:grid-cols-3 gap-6"><div class="col-span-3 lg:col-span-2 system-diagram"><svg id="connection-lines" class="w-full h-full"><path id="line-users-lb" class="line-ok" d="M 120 200 L 240 200" /><path id="line-lb-web" class="line-ok" d="M 360 200 L 480 200" /><path id="line-web-db" class="line-fail" d="M 600 200 L 720 200" /><path id="line-web-db-backup" class="line-ok" stroke-dasharray="4" stroke-opacity="0" d="M 600 200 C 600 300, 720 300, 720 320" /></svg><div class="system-node node-users"><i class="fas fa-users fa-2x text-primary-color"></i><p>USERS</p></div><div class="system-node node-lb"><i class="fas fa-server fa-2x text-primary-color"></i><p>Load Balancer</p></div><div class="system-node node-web"><i class="fas fa-cubes fa-2x text-primary-color"></i><p>Web Servers</p></div><div id="db-primary-node" class="system-node node-db cursor-pointer"><div id="db-primary-status" class="node-status status-fail">FAILING</div><i class="fas fa-database fa-2x text-danger-color"></i><p>Database</p></div><div id="db-backup-node" class="system-node node-db-backup"><div id="db-backup-status" class="node-status status-offline">OFFLINE</div><i class="fas fa-database fa-2x text-text-muted"></i><p>Backup DB</p></div></div><div class="col-span-3 lg:col-span-1 hud-border p-4 rounded-lg"><h3 class="text-2xl font-bold mb-4">SYSTEM STATUS</h3><div class="mb-4"><p class="text-text-muted">SYSTEM INTEGRITY:</p><p id="integrity-percent" class="text-4xl font-bold text-danger-color">35%</p></div><div id="diag-panel" class="bg-black/20 p-3 rounded-md" style="opacity:0;visibility:hidden;"><p class="font-bold text-primary-color">// DIAGNOSTIC REPORT</p><p><strong class="text-text-muted">STATUS:</strong> <span class="text-danger-color">OFFLINE</span></p><p><strong class="text-text-muted">REASON:</strong> QUERY OVERLOAD</p><p><strong class="text-text-muted">SOLUTION:</strong> DEPLOY 'SHONZIX' PROTOCOL</p><button id="engage-protocol-btn" class="btn-primary w-full mt-4 py-3 font-bold">ENGAGE PROTOCOL</button></div><p id="diag-prompt" class="text-text-muted text-center mt-4">Click failing node to run diagnostics.</p></div></div>
             </section>
 
-            <section id="signal" class="content-section">
+            <section id="signal" class="content-section scroll-mt-24 pt-28">
                 <h2 class="text-4xl font-bold mb-2 text-center">// SEND A SIGNAL</h2>
                 <p class="text-text-muted mb-8 text-center">Need a hero for your next project? Open a secure channel.</p>
-                <form id="contact-form-hero" class="max-w-2xl mx-auto"><div class="mb-4"><input type="text" name="name" placeholder="Your Alias (Name)" class="form-input w-full p-3 rounded-md" required></div><div class="mb-4"><input type="email" name="email" placeholder="Secure Channel (Email)" class="form-input w-full p-3 rounded-md" required></div><div class="mb-6"><textarea name="message" rows="5" placeholder="Your Message..." class="form-input w-full p-3 rounded-md" required></textarea></div><div class="text-center"><button type="submit" class="btn-primary font-bold py-3 px-8 rounded-md w-full md:w-auto mx-auto block">TRANSMIT</button><p id="form-status-hero" class="mt-4 text-sm"></p></div></form>
+                <form id="contact-form-hero" class="max-w-2xl mx-auto px-4 sm:px-6"><div class="mb-4"><input type="text" name="name" placeholder="Your Alias (Name)" class="form-input w-full p-3 rounded-md" required></div><div class="mb-4"><input type="email" name="email" placeholder="Secure Channel (Email)" class="form-input w-full p-3 rounded-md" required></div><div class="mb-6"><textarea name="message" rows="5" placeholder="Your Message..." class="form-input w-full p-3 rounded-md" required></textarea></div><div class="text-center"><button type="submit" class="btn-primary font-bold py-3 px-8 rounded-md w-full md:w-auto mx-auto block">TRANSMIT</button><p id="form-status-hero" class="mt-4 text-sm"></p></div></form>
             </section>
     </main>
 
@@ -225,7 +232,7 @@
         const ctx = canvas ? canvas.getContext('2d') : null;
         let particles = [];
         let canvasContainer = document.getElementById('home');
-        function resizeCanvas() { if(!canvasContainer || !canvas) return; canvas.width = canvasContainer.clientWidth; canvas.height = canvasContainer.clientHeight; }
+        function resizeCanvas() { if(!canvasContainer || !canvas) return; canvas.width = window.innerWidth; canvas.height = window.innerHeight; }
         class Particle { constructor(x, y) { this.x = x; this.y = y; this.size = Math.random() * 2 + 1; this.speedX = (Math.random() - 0.5) * 2; this.speedY = (Math.random() - 0.5) * 2; this.color = `rgba(0, 229, 255, ${Math.random() * 0.5 + 0.2})`; } update() { this.x += this.speedX; this.y += this.speedY; if (this.size > 0.1) this.size -= 0.02; } draw() { ctx.fillStyle = this.color; ctx.beginPath(); ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2); ctx.fill(); } }
         function createParticles(e) { if(!canvasContainer || !ctx) return; let xPos = e.clientX - canvasContainer.getBoundingClientRect().left; let yPos = e.clientY - canvasContainer.getBoundingClientRect().top; for (let i = 0; i < 5; i++) particles.push(new Particle(xPos, yPos)); }
         function animateParticles() { if(!ctx) return; requestAnimationFrame(animateParticles); ctx.clearRect(0, 0, canvas.width, canvas.height); for (let i = 0; i < particles.length; i++) { particles[i].update(); particles[i].draw(); if (particles[i].size <= 0.1) { particles.splice(i, 1); i--; } } }
@@ -313,6 +320,16 @@
              window.addEventListener('resize', resizeCanvas);
              showSection('home');
         });
+
+        const mobileToggle = document.getElementById('mobile-toggle');
+        const navMenu = document.getElementById('nav-menu');
+
+        if (mobileToggle && navMenu) {
+        mobileToggle.addEventListener('click', () => {
+            navMenu.classList.toggle('hidden');
+        });
+        }
+
     </script>
 </body>
 </html>

@@ -11,6 +11,7 @@
         /* --- General --- */
         body {
             background-color: #050a13;
+            overflow-y: auto;
         }
         .panel {
             transition: all 0.5s cubic-bezier(0.25, 0.8, 0.25, 1);
@@ -77,16 +78,16 @@
         }
     </style>
 </head>
-<body class="text-white">
+<body class="text-white overflow-y-auto md:overflow-hidden">
 
     <div class="panel-container flex flex-col md:flex-row min-h-screen overflow-y-auto">
         
         <!-- Architect Panel (Left) -->
-        <div class="architect-panel panel w-full md:w-1/2 flex flex-col justify-center items-center p-8 text-center">
+        <div class="architect-panel panel w-full md:w-1/2 flex flex-col justify-center items-center p-4 sm:p-6 md:p-8 text-center">
             <div class="max-w-md">
-                <h2 class="text-4xl md:text-5xl font-bold mb-2" style="color: #E2E8F0;">Alvin Dandeebo</h2>
-                <h3 class="text-xl mb-6" style="color: #A0AEC0;">// The Digital Architect</h3>
-                <p class="mb-8" style="color: #A0AEC0;">
+                <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold mb-2" style="color: #E2E8F0;">Alvin Dandeebo</h2>
+                <h3 class="text-lg sm:text-xl mb-6" style="color: #A0AEC0;">// The Digital Architect</h3>
+                <p class="text-sm sm:text-base mb-8" style="color: #A0AEC0;">
                     For meticulously planned blueprints, structured code, and scalable systems built with precision.
                 </p>
                 <a href="./architect" class="btn-architect py-3 px-8 rounded-sm font-semibold tracking-wider">
@@ -96,11 +97,11 @@
         </div>
 
         <!-- Hero Panel (Right) -->
-        <div class="hero-panel panel w-full md:w-1/2 flex flex-col justify-center items-center p-8 text-center">
+        <div class="hero-panel panel w-full md:w-1/2 flex flex-col justify-center items-center p-4 sm:p-6 md:p-8 text-center">
              <div class="max-w-md relative z-10">
-                <h2 class="text-4xl md:text-5xl font-bold mb-2">Shonzix</h2>
-                <h3 class="text-xl text-cyan-300 mb-6">The Creative Problem-Solver</h3>
-                <p class="text-gray-300 mb-8">
+                <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold mb-2">Shonzix</h2>
+                <h3 class="text-lg sm:text-xl text-cyan-300 mb-6">The Creative Problem-Solver</h3>
+                <p class="text-sm sm:text-base text-gray-300 mb-8">
                     For dynamic solutions, bold innovation, and heroic efforts to conquer complex digital challenges.
                 </p>
                 <a href="./hero" class="btn-hero py-3 px-8 rounded-md font-bold tracking-wider">

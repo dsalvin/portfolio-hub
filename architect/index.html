@@ -130,6 +130,13 @@
             color: var(--primary-color);
             transform: rotate(15deg);
         }
+        @media (max-width: 640px) {
+        [data-aos] {
+            opacity: 1 !important;
+            transform: none !important;
+        }
+        }
+
     </style>
 </head>
 <body id="page-wrapper" class="design-theme antialiased">
@@ -137,30 +144,40 @@
     <div id="blueprint-grid"></div>
 
     <header class="fixed top-0 left-0 w-full p-6 md:p-8 z-20">
-        <nav class="flex justify-between items-center max-w-6xl mx-auto">
+        <nav class="flex justify-between items-center max-w-6xl mx-auto" aria-label="Main navigation">
             <div class="text-xl font-bold text-main cursor-pointer" onclick="showSection('home')">Alvin Dandy // Digital Architect</div>
-            <ul class="hidden md:flex items-center space-x-8 text-sm">
-                <li><button id="theme-switcher" title="Toggle Focus Mode"><i class="fas fa-lightbulb fa-lg"></i></button></li>
-                <li><a href="../index.html" class="text-xs font-semibold uppercase text-yellow-300 hover:text-yellow-100 tracking-wide">← Return to Hub</a></li>
-                <li><span class="text-xs mr-1" style="color: var(--primary-color);">01.</span><a class="nav-item" onclick="showSection('about', this)">//about</a></li>
-                <li><span class="text-xs mr-1" style="color: var(--primary-color);">02.</span><a class="nav-item" onclick="showSection('projects', this)">//projects</a></li>
-                <li><span class="text-xs mr-1" style="color: var(--primary-color);">03.</span><a class="nav-item" onclick="showSection('contact', this)">//contact</a></li>
+            <!-- Mobile Toggle Button -->
+            <button id="nav-toggle" class="md:hidden text-main text-xl">
+            <i class="fas fa-bars"></i>
+            </button>
+
+            <!-- Navigation Links -->
+            <ul id="nav-menu" class="hidden md:flex flex-col md:flex-row md:items-center absolute md:static top-full left-0 w-full md:w-auto bg-[var(--bg-color)] md:bg-transparent border-t border-[var(--card-border)] md:border-none z-50 md:z-auto space-y-4 md:space-y-0 md:space-x-8 text-sm mt-4 md:mt-0 p-4 md:p-0 rounded-md md:rounded-none">
+            <li>
+            <button id="theme-switcher" title="Toggle Focus Mode" class="text-main hover:text-[var(--primary-color)] transition-colors" aria-label="Toggle dark/light mode">
+                <i class="fas fa-lightbulb fa-lg"></i>
+            </button>
+            </li>
+            <li><a href="../index.html" class="text-xs font-semibold uppercase text-yellow-300 hover:text-yellow-100 tracking-wide">← Return to Hub</a></li>
+            <li><a class="nav-item" onclick="showSection('about', this)">About</a></li>
+            <li><a class="nav-item" onclick="showSection('projects', this)">Projects</a></li>
+            <li><a class="nav-item" onclick="showSection('contact', this)">Contact</a></li>
             </ul>
         </nav>
     </header>
 
     <main class="w-full h-screen relative">
-        <section id="home" class="content-section active">
+        <section id="home" class="content-section active scroll-mt-24 pt-28">
             <div class="text-center">
-                <h1 class="text-4xl md:text-6xl text-main mb-4">Designing Digital Structures</h1>
+                <h1 class="text-3xl sm:text-4xl md:text-6xl text-main mb-4 leading-tight break-words">Designing Digital Structures</h1>
                 <p class="text-lg md:text-xl text-secondary max-w-2xl mx-auto">I build robust and elegant web solutions from the ground up, turning complex problems into intuitive user experiences.</p>
                 <button class="btn-primary mt-8 py-3 px-6 rounded-sm" onclick="showSection('projects')">View My Blueprints</button>
             </div>
         </section>
 
         <!-- About Section -->
-        <section id="about" class="content-section">
-             <h2 class="text-3xl font-bold mb-6 text-main text-center md:text-left">// About Me</h2>
+        <section id="about" class="content-section scroll-mt-24 pt-28">
+             <h2 class="text-2xl sm:text-3xl font-bold mb-6 text-main text-center md:text-left">// About Me</h2>
              <div class="grid md:grid-cols-2 gap-8 items-center">
                 <div data-aos="fade-right">
                     <p class="text-secondary mb-4">I'm a full-stack developer with a passion for clean architecture, scalability, and user-centric design. I approach every project with the mindset of a digital architect—meticulously planning each layer to ensure reliability, clarity, and efficiency. My work blends strong technical foundations with thoughtful UI/UX to deliver robust, future-proof solutions.</p>
@@ -175,30 +192,30 @@
                     </ul>
                 </div>
                 <div class="flex justify-center items-center">
-                    <div class="w-64 h-64 border-2 relative" style="border-color: var(--primary-color);" data-aos="fade-left">
-                        <img src="https://placehold.co/300x300/1A202C/E2E8F0?text=Alvin+D" alt="Alvin Dandy" class="absolute w-full h-full object-cover -top-4 -left-4 hover:top-0 hover:left-0 transition-all duration-300">
+                    <div class="w-48 sm:w-64 h-48 sm:h-64 border-2 relative overflow-hidden" style="border-color: var(--primary-color);" data-aos="fade-left">
+                        <img src="https://placehold.co/300x300/1A202C/E2E8F0?text=Alvin+D" alt="Alvin Dandy"  class="w-full h-full object-cover relative transition-all duration-300 hover:-translate-x-1 hover:-translate-y-1" loading="lazy" decoding="async">
                     </div>
                 </div>
              </div>
         </section>
 
         <!-- Projects Section -->
-        <section id="projects" class="content-section">
+        <section id="projects" class="content-section scroll-mt-24 pt-28">
             <h2 class="text-3xl font-bold mb-8 text-main text-center">// Project Blueprints</h2>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 px-4 sm:px-0">
                 <div class="project-card p-6 rounded-sm" data-aos="fade-up" data-aos-delay="100"><h3 class="text-xl font-bold mb-2 text-main">Synapse</h3><p class="text-secondary mb-4">Architected a real-time whiteboard application with a Next.js frontend and a Node.js WebSocket backend for instant state synchronization.</p><a href="#" onclick="openModal('synapseModal')" class="hover:underline" style="color: var(--primary-color);">View Datasheet →</a></div>
                 <div class="project-card p-6 rounded-sm" data-aos="fade-up" data-aos-delay="100"><h3 class="text-xl font-bold mb-2 text-main">Oracle</h3><p class="text-secondary mb-4">Engineered a full-stack analytics dashboard with a React/MUI frontend and a Python/FastAPI backend for AI-powered sales forecasting.</p><a href="#" onclick="openModal('oracleModal')" class="hover:underline" style="color: var(--primary-color);">View Datasheet →</a></div>
-                <div class="project-card p-6 rounded-sm" data-aos="fade-up" data-aos-delay="100"><h3 class="text-xl font-bold mb-2 text-main">Blueprint: Creative UI/UX</h3><p class="text-secondary mb-4">An interactive 3D product visualizer focusing on a seamless user experience, fluid animations, and photorealistic rendering.</p><a href="#" target="_blank" class="hover:underline" style="color: var(--primary-color);">View Datasheet →</a></div>
+                <div class="project-card p-6 rounded-sm"><h3 class="text-xl font-bold mb-2 text-main">Blueprint: Creative UI/UX</h3><p class="text-secondary mb-4">An interactive 3D product visualizer focusing on a seamless user experience, fluid animations, and photorealistic rendering.</p><a href="#" target="_blank" class="hover:underline" style="color: var(--primary-color);">View Datasheet →</a></div>
             </div>
         </section>
 
         <!-- Synapse Modal -->
         <div id="synapseModal" class="hidden fixed inset-0 bg-black bg-opacity-80 flex items-center justify-center z-50">
         <div class="bg-[#112240] p-6 max-w-2xl w-full mx-4 rounded-md shadow-xl text-left overflow-y-auto max-h-[90vh]" data-aos="zoom-in">
-            <h2 class="text-3xl font-bold text-main mb-2">Synapse</h2>
+            <h2 class="text-2xl sm:text-3xl font-bold text-main mb-2">Synapse</h2>
             <p class="text-secondary mb-4 italic">A real-time, collaborative whiteboard built with Next.js, WebSockets & Firebase.</p>
 
-            <img src="https://placehold.co/600x300/0f0f1b/00e5ff?text=Synapse+Screenshot" alt="Synapse Screenshot" class="rounded-md mb-4">
+            <img src="../synapse-screenshot.png" alt="Synapse Screenshot" class="rounded-md mb-4" loading="lazy" decoding="async">
 
             <h3 class="text-xl font-bold text-main mt-4 mb-2">🧠 Vision</h3>
             <p class="text-secondary mb-4">Create a web-based whiteboard that offers a frictionless, real-time collaborative experience — inspired by Miro and FigJam.</p>
@@ -233,10 +250,10 @@
         <!-- Oracle Modal -->
         <div id="oracleModal" class="hidden fixed inset-0 bg-black bg-opacity-80 flex items-center justify-center z-50">
         <div class="bg-[#112240] p-6 max-w-2xl w-full mx-4 rounded-md shadow-xl text-left overflow-y-auto max-h-[90vh]" data-aos="zoom-in">
-            <h2 class="text-3xl font-bold text-main mb-2">Oracle</h2>
+            <h2 class="text-2xl sm:text-3xl font-bold text-main mb-2">Oracle</h2>
             <p class="text-secondary mb-4 italic">A full-stack, AI-powered sales forecasting dashboard.</p>
 
-            <img src="https://placehold.co/600x300/0f0f1b/64FFDA?text=Oracle+Preview" alt="Oracle Screenshot" class="rounded-md mb-4">
+            <img src="../oracle-screenshot.png" alt="Oracle Screenshot" class="rounded-md mb-4" loading="lazy" decoding="async">
 
             <h3 class="text-xl font-bold text-main mt-4 mb-2">📊 Frontend Features</h3>
             <ul class="list-disc list-inside text-secondary mb-4 space-y-2">
@@ -285,10 +302,10 @@
 
 
         <!-- Contact Section -->
-        <section id="contact" class="content-section">
+        <section id="contact" class="content-section scroll-mt-24 pt-28">
             <h2 class="text-3xl font-bold mb-4 text-main text-center">// Commission a Blueprint</h2>
             <p class="text-secondary mb-8 max-w-xl mx-auto text-center">I'm available for freelance work and open to discussing new projects. Let's build something amazing together.</p>
-            <form id="contact-form" class="max-w-xl mx-auto">
+            <form id="contact-form" class="max-w-xl mx-auto px-4 sm:px-6">
                 <div class="mb-4"><input type="text" name="name" placeholder="// Your Name" class="form-input w-full p-3 rounded-sm text-main" required></div>
                 <div class="mb-4"><input type="email" name="email" placeholder="// Your Email" class="form-input w-full p-3 rounded-sm text-main" required></div>
                 <div class="mb-6"><textarea name="message" rows="4" placeholder="// Your Message" class="form-input w-full p-3 rounded-sm text-main" required></textarea></div>
@@ -302,7 +319,13 @@
     
     <!-- Script -->
     <script>
-        AOS.init();
+        AOS.init({
+        once: true, // animations only run once
+        duration: 600,
+        });
+        window.addEventListener('resize', () => {
+        AOS.refresh();
+        });
         function showSection(sectionId, navElement) {
             document.querySelectorAll('.content-section').forEach(section => section.classList.remove('active'));
             document.querySelectorAll('.nav-item').forEach(item => item.classList.remove('active'));
@@ -375,6 +398,13 @@
             const savedTheme = localStorage.getItem('theme') || 'design';
             pageWrapper.classList.add(`${savedTheme}-theme`);
             showSection('home'); 
+            const navToggle = document.getElementById('nav-toggle');
+            const navMenu = document.getElementById('nav-menu');
+            if (navToggle && navMenu) {
+                navToggle.addEventListener('click', () => {
+                navMenu.classList.toggle('hidden');
+                });
+            }
         });
 
         function openModal(id) {
@@ -392,6 +422,13 @@
             }
         }
         });
+
+
+        if (navMenu.classList.contains('hidden')) {
+        document.body.classList.remove('overflow-hidden');
+        } else {
+        document.body.classList.add('overflow-hidden');
+        }
 
     </script>
 </body>
