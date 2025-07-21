@@ -188,10 +188,51 @@
             <section id="missions" class="content-section scroll-mt-24 pt-28">
                 <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold mb-8">// COMPLETED MISSIONS</h2>
                 <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                    <div class="mission-card hud-border rounded-lg" style="animation-delay: 0.1s;">
-                        <div class="overflow-hidden"><img src="../synapse-screenshot.png" alt="Synapse Project Preview" class="w-full h-48 object-cover mission-image"></div>
-                        <div class="p-6"><h3 class="text-2xl font-bold mb-2">Mission: Synapse</h3><p class="text-text-muted mb-4">I led the charge to build a real-time collaborative platform from scratch, liberating teams from clunky, restrictive software.</p><a href="https://synapse-client-five.vercel.app" target="_blank" class="font-bold text-primary-color hover:underline">ACCESS FILE ></a></div>
+                    <!-- SPAR Card Game – Enhanced Card -->
+                    <div class="relative group bg-[#0b1622] border border-cyan-500/20 rounded-lg shadow-xl overflow-hidden hover:border-cyan-400 transition-all duration-300" data-aos="fade-up" data-aos-delay="100">
+
+                    <!-- Glowing Accent Top Bar -->
+                    <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-cyan-500 via-sky-400 to-cyan-500 animate-pulse opacity-80"></div>
+
+                    <!-- Image Preview -->
+                    <div class="overflow-hidden">
+                        <img src="../spar-screenshot.png" alt="Spar Game Preview"
+                        class="w-full h-48 sm:h-40 object-cover transition-transform duration-300 group-hover:scale-105" />
                     </div>
+
+                    <!-- Content -->
+                    <div class="p-5 sm:p-6 text-sm space-y-3">
+                        <h3 class="text-lg sm:text-xl font-bold text-cyan-300 tracking-wide">// SPAR Card Game</h3>
+                        <p class="text-gray-300 leading-snug">
+                        A real-time multiplayer card game with anonymous login, live Firestore sync, in-room chat, and smooth card animations.
+                        </p>
+
+                        <!-- Feature Bullets -->
+                        <ul class="text-gray-400 text-xs list-disc list-inside space-y-1">
+                        <li>2–7 players with anonymous auth</li>
+                        <li>Realtime sync via Firebase Firestore</li>
+                        <li>In-room chat and score tracking</li>
+                        <li>Modern, responsive UI with transitions</li>
+                        </ul>
+
+                        <!-- Tech Stack -->
+                        <div class="flex flex-wrap text-[11px] text-gray-400 italic gap-x-3 gap-y-1 pt-2">
+                        <span>React + Hooks</span>
+                        <span>Firebase Auth</span>
+                        <span>Firestore</span>
+                        <span>Tailwind CSS</span>
+                        </div>
+
+                        <!-- Live Demo Link -->
+                        <div class="pt-3">
+                        <a href="https://spar-84a09.web.app" target="_blank" rel="noopener noreferrer"
+                            class="inline-block text-cyan-300 hover:text-cyan-100 text-xs tracking-wide underline transition">
+                            🔗 Play Live
+                        </a>
+                        </div>
+                    </div>
+                    </div>
+
                     <div class="mission-card hud-border rounded-lg" style="animation-delay: 0.2s;">
                         <div class="overflow-hidden"><img src="../oracle-screenshot.png" alt="Oracle Project Preview" class="w-full h-48 object-cover mission-image"></div>
                         <div class="p-6"><h3 class="text-2xl font-bold mb-2">Mission: Oracle</h3><p class="text-text-muted mb-4">I confronted the challenge of murky data by forging an AI-powered engine that turns confusing numbers into clear, predictive insights.</p><a href="https://oracle-frontend-chi.vercel.app" target="_blank" class="font-bold text-primary-color hover:underline">ACCESS FILE ></a></div>
