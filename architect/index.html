@@ -7,6 +7,9 @@
     <meta name="description" content="The professional portfolio of Alvin Dandy, a software developer and digital architect specializing in building robust, scalable web solutions.">
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;700&display=swap');
         
@@ -138,7 +141,7 @@
             <div class="text-xl font-bold text-main cursor-pointer" onclick="showSection('home')">Alvin Dandy // Digital Architect</div>
             <ul class="hidden md:flex items-center space-x-8 text-sm">
                 <li><button id="theme-switcher" title="Toggle Focus Mode"><i class="fas fa-lightbulb fa-lg"></i></button></li>
-                <li><a href="../index.html" class="text-xs text-yellow-300 hover:text-yellow-100">[ Return to Hub ]</a></li>
+                <li><a href="../index.html" class="text-xs font-semibold uppercase text-yellow-300 hover:text-yellow-100 tracking-wide">← Return to Hub</a></li>
                 <li><span class="text-xs mr-1" style="color: var(--primary-color);">01.</span><a class="nav-item" onclick="showSection('about', this)">//about</a></li>
                 <li><span class="text-xs mr-1" style="color: var(--primary-color);">02.</span><a class="nav-item" onclick="showSection('projects', this)">//projects</a></li>
                 <li><span class="text-xs mr-1" style="color: var(--primary-color);">03.</span><a class="nav-item" onclick="showSection('contact', this)">//contact</a></li>
@@ -155,11 +158,12 @@
             </div>
         </section>
 
+        <!-- About Section -->
         <section id="about" class="content-section">
              <h2 class="text-3xl font-bold mb-6 text-main text-center md:text-left">// About Me</h2>
              <div class="grid md:grid-cols-2 gap-8 items-center">
-                <div>
-                    <p class="text-secondary mb-4">Hello! I'm a developer with a passion for precision and clean architecture. I approach every project like an architect designing a building: with a clear plan, attention to detail, and a commitment to creating something that is both functional and beautiful.</p>
+                <div data-aos="fade-right">
+                    <p class="text-secondary mb-4">I'm a full-stack developer with a passion for clean architecture, scalability, and user-centric design. I approach every project with the mindset of a digital architect—meticulously planning each layer to ensure reliability, clarity, and efficiency. My work blends strong technical foundations with thoughtful UI/UX to deliver robust, future-proof solutions.</p>
                     <p class="text-secondary">My expertise lies in translating concepts into high-quality code. Here are a few technologies I've been working with:</p>
                     <ul class="mt-4 grid grid-cols-2 gap-4 text-sm text-secondary">
                         <li class="before:content-['▹'] before:mr-2" style="color: var(--text-secondary);"><span class="before:text-[var(--primary-color)]">JavaScript (ES6+)</span></li>
@@ -171,22 +175,116 @@
                     </ul>
                 </div>
                 <div class="flex justify-center items-center">
-                    <div class="w-64 h-64 border-2 relative" style="border-color: var(--primary-color);">
+                    <div class="w-64 h-64 border-2 relative" style="border-color: var(--primary-color);" data-aos="fade-left">
                         <img src="https://placehold.co/300x300/1A202C/E2E8F0?text=Alvin+D" alt="Alvin Dandy" class="absolute w-full h-full object-cover -top-4 -left-4 hover:top-0 hover:left-0 transition-all duration-300">
                     </div>
                 </div>
              </div>
         </section>
 
+        <!-- Projects Section -->
         <section id="projects" class="content-section">
             <h2 class="text-3xl font-bold mb-8 text-main text-center">// Project Blueprints</h2>
             <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                <div class="project-card p-6 rounded-sm"><h3 class="text-xl font-bold mb-2 text-main">Synapse</h3><p class="text-secondary mb-4">Architected a real-time whiteboard application with a Next.js frontend and a Node.js WebSocket backend for instant state synchronization.</p><a href="https://synapse-client-five.vercel.app" target="_blank" class="hover:underline" style="color: var(--primary-color);">View Datasheet →</a></div>
-                <div class="project-card p-6 rounded-sm"><h3 class="text-xl font-bold mb-2 text-main">Oracle</h3><p class="text-secondary mb-4">Engineered a full-stack analytics dashboard with a React/MUI frontend and a Python/FastAPI backend for AI-powered sales forecasting.</p><a href="https://oracle-frontend-chi.vercel.app" target="_blank" class="hover:underline" style="color: var(--primary-color);">View Datasheet →</a></div>
-                <div class="project-card p-6 rounded-sm"><h3 class="text-xl font-bold mb-2 text-main">Blueprint: Creative UI/UX</h3><p class="text-secondary mb-4">An interactive 3D product visualizer focusing on a seamless user experience, fluid animations, and photorealistic rendering.</p><a href="#" target="_blank" class="hover:underline" style="color: var(--primary-color);">View Datasheet →</a></div>
+                <div class="project-card p-6 rounded-sm" data-aos="fade-up" data-aos-delay="100"><h3 class="text-xl font-bold mb-2 text-main">Synapse</h3><p class="text-secondary mb-4">Architected a real-time whiteboard application with a Next.js frontend and a Node.js WebSocket backend for instant state synchronization.</p><a href="#" onclick="openModal('synapseModal')" class="hover:underline" style="color: var(--primary-color);">View Datasheet →</a></div>
+                <div class="project-card p-6 rounded-sm" data-aos="fade-up" data-aos-delay="100"><h3 class="text-xl font-bold mb-2 text-main">Oracle</h3><p class="text-secondary mb-4">Engineered a full-stack analytics dashboard with a React/MUI frontend and a Python/FastAPI backend for AI-powered sales forecasting.</p><a href="#" onclick="openModal('oracleModal')" class="hover:underline" style="color: var(--primary-color);">View Datasheet →</a></div>
+                <div class="project-card p-6 rounded-sm" data-aos="fade-up" data-aos-delay="100"><h3 class="text-xl font-bold mb-2 text-main">Blueprint: Creative UI/UX</h3><p class="text-secondary mb-4">An interactive 3D product visualizer focusing on a seamless user experience, fluid animations, and photorealistic rendering.</p><a href="#" target="_blank" class="hover:underline" style="color: var(--primary-color);">View Datasheet →</a></div>
             </div>
         </section>
 
+        <!-- Synapse Modal -->
+        <div id="synapseModal" class="hidden fixed inset-0 bg-black bg-opacity-80 flex items-center justify-center z-50">
+        <div class="bg-[#112240] p-6 max-w-2xl w-full mx-4 rounded-md shadow-xl text-left overflow-y-auto max-h-[90vh]" data-aos="zoom-in">
+            <h2 class="text-3xl font-bold text-main mb-2">Synapse</h2>
+            <p class="text-secondary mb-4 italic">A real-time, collaborative whiteboard built with Next.js, WebSockets & Firebase.</p>
+
+            <img src="https://placehold.co/600x300/0f0f1b/00e5ff?text=Synapse+Screenshot" alt="Synapse Screenshot" class="rounded-md mb-4">
+
+            <h3 class="text-xl font-bold text-main mt-4 mb-2">🧠 Vision</h3>
+            <p class="text-secondary mb-4">Create a web-based whiteboard that offers a frictionless, real-time collaborative experience — inspired by Miro and FigJam.</p>
+
+            <h3 class="text-xl font-bold text-main mt-4 mb-2">🚀 Core Features</h3>
+            <ul class="list-disc list-inside text-secondary mb-4 space-y-2">
+            <li><strong class="text-main">Secure Auth:</strong> Google & GitHub login via NextAuth.js</li>
+            <li><strong class="text-main">Board Management:</strong> Create, join, rename, delete boards</li>
+            <li><strong class="text-main">Real-Time:</strong> Live cursors, avatars, and state sync</li>
+            <li><strong class="text-main">Whiteboard Tools:</strong> Shapes, text, drawing, connectors, eraser</li>
+            <li><strong class="text-main">Canvas:</strong> Infinite scroll/zoom, undo/redo system</li>
+            <li><strong class="text-main">Permissions:</strong> Invite users, roles, read-only enforcement</li>
+            </ul>
+
+            <h3 class="text-xl font-bold text-main mt-4 mb-2">⚙️ Tech Stack</h3>
+            <ul class="grid grid-cols-2 gap-2 text-sm text-secondary mb-4">
+            <li><strong class="text-main">Framework:</strong> Next.js (App Router)</li>
+            <li><strong class="text-main">Canvas:</strong> react-konva</li>
+            <li><strong class="text-main">State:</strong> Zustand + History Stack</li>
+            <li><strong class="text-main">Real-time:</strong> Node.js + WebSockets</li>
+            <li><strong class="text-main">Auth:</strong> NextAuth.js + Firebase Adapter</li>
+            <li><strong class="text-main">DB:</strong> Firestore + Admin SDK</li>
+            </ul>
+
+            <div class="flex flex-col sm:flex-row gap-4 justify-end mt-6">
+            <a href="https://synapse-client-five.vercel.app" target="_blank" class="btn-primary px-4 py-2 rounded-sm">Launch Project</a>
+            <button onclick="closeModal('synapseModal')" class="text-red-400 hover:text-red-200 font-semibold">Close</button>
+            </div>
+        </div>
+        </div>
+
+        <!-- Oracle Modal -->
+        <div id="oracleModal" class="hidden fixed inset-0 bg-black bg-opacity-80 flex items-center justify-center z-50">
+        <div class="bg-[#112240] p-6 max-w-2xl w-full mx-4 rounded-md shadow-xl text-left overflow-y-auto max-h-[90vh]" data-aos="zoom-in">
+            <h2 class="text-3xl font-bold text-main mb-2">Oracle</h2>
+            <p class="text-secondary mb-4 italic">A full-stack, AI-powered sales forecasting dashboard.</p>
+
+            <img src="https://placehold.co/600x300/0f0f1b/64FFDA?text=Oracle+Preview" alt="Oracle Screenshot" class="rounded-md mb-4">
+
+            <h3 class="text-xl font-bold text-main mt-4 mb-2">📊 Frontend Features</h3>
+            <ul class="list-disc list-inside text-secondary mb-4 space-y-2">
+            <li><strong class="text-main">Modern UI:</strong> Dark-themed dashboard with MUI</li>
+            <li><strong class="text-main">Auth:</strong> Email/password + Google Sign-In</li>
+            <li><strong class="text-main">Charts:</strong> Recharts for visualizing trends + forecasts</li>
+            <li><strong class="text-main">CSV Upload:</strong> Clean file import interface</li>
+            <li><strong class="text-main">Insights:</strong> AI-generated summaries with charts</li>
+            <li><strong class="text-main">Export:</strong> Download CSVs of forecast data</li>
+            </ul>
+
+            <h3 class="text-xl font-bold text-main mt-4 mb-2">🔮 Backend Features</h3>
+            <ul class="list-disc list-inside text-secondary mb-4 space-y-2">
+            <li><strong class="text-main">Secure Auth:</strong> JWT registration/login</li>
+            <li><strong class="text-main">OAuth2:</strong> Google login with Authlib</li>
+            <li><strong class="text-main">Data Processing:</strong> Validates and parses uploaded sales data</li>
+            <li><strong class="text-main">AI Forecasting:</strong> Generates 30-day forecasts using Meta's Prophet</li>
+            <li><strong class="text-main">Historical Analytics:</strong> Extracts trends from previous data</li>
+            <li><strong class="text-main">Data Export:</strong> Returns results as downloadable CSV</li>
+            </ul>
+
+            <h3 class="text-xl font-bold text-main mt-4 mb-2">🧰 Tech Stack</h3>
+            <div class="grid grid-cols-2 gap-3 text-sm text-secondary">
+            <div>
+                <p><strong class="text-main">Frontend:</strong> React (Vite), MUI</p>
+                <p><strong class="text-main">Charts:</strong> Recharts</p>
+                <p><strong class="text-main">Routing:</strong> React Router</p>
+                <p><strong class="text-main">Icons:</strong> Lucide React</p>
+                <p><strong class="text-main">Requests:</strong> Axios</p>
+            </div>
+            <div>
+                <p><strong class="text-main">Backend:</strong> FastAPI</p>
+                <p><strong class="text-main">DB:</strong> SQLAlchemy, SQLite/PostgreSQL</p>
+                <p><strong class="text-main">Auth:</strong> JWT, OAuth2 (Authlib)</p>
+                <p><strong class="text-main">AI/ML:</strong> Prophet, Pandas</p>
+                <p><strong class="text-main">Server:</strong> Uvicorn</p>
+            </div>
+            </div>
+
+            <div class="flex flex-col sm:flex-row gap-4 justify-end mt-6">
+            <a href="https://oracle-frontend-chi.vercel.app" target="_blank" class="btn-primary px-4 py-2 rounded-sm">Launch Project</a>
+            <button onclick="closeModal('oracleModal')" class="text-red-400 hover:text-red-200 font-semibold">Close</button>
+            </div>
+        </div>
+        </div>
+
+
+        <!-- Contact Section -->
         <section id="contact" class="content-section">
             <h2 class="text-3xl font-bold mb-4 text-main text-center">// Commission a Blueprint</h2>
             <p class="text-secondary mb-8 max-w-xl mx-auto text-center">I'm available for freelance work and open to discussing new projects. Let's build something amazing together.</p>
@@ -202,7 +300,9 @@
         </section>
     </main>
     
+    <!-- Script -->
     <script>
+        AOS.init();
         function showSection(sectionId, navElement) {
             document.querySelectorAll('.content-section').forEach(section => section.classList.remove('active'));
             document.querySelectorAll('.nav-item').forEach(item => item.classList.remove('active'));
@@ -276,6 +376,23 @@
             pageWrapper.classList.add(`${savedTheme}-theme`);
             showSection('home'); 
         });
+
+        function openModal(id) {
+        document.getElementById(id).classList.remove('hidden');
+        }
+        function closeModal(id) {
+        document.getElementById(id).classList.add('hidden');
+        }
+
+        document.addEventListener('keydown', function(e) {
+        if (e.key === "Escape") {
+            const modal = document.getElementById('synapseModal');
+            if (modal && !modal.classList.contains('hidden')) {
+            modal.classList.add('hidden');
+            }
+        }
+        });
+
     </script>
 </body>
 </html>
